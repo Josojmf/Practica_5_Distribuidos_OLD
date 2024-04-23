@@ -1,4 +1,4 @@
-# Jose María Fernández Chat Sincronizado
+# Jose María Fernández  Sincronizador
 ## Sincronizado mediante:
 - 1 Servidor externo 
 Link : [World Time Api](http://worldtimeapi.org/api/timezone/Europe/Madrid)
