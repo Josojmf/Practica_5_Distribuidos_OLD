@@ -14,7 +14,7 @@
     "devntp": "nodemon ntpserver.js",
     "deploy": "gh-pages -d build",
     "start": "concurrently --kill-others \"npm run startchat\" \"npm run startntp\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build"
 
 
   },
