@@ -12,10 +12,15 @@
     "startntp": "node ntpserver.js",
     "dev": "nodemon index.js",
     "devntp": "nodemon ntpserver.js",
-    "start": "concurrently --kill-others \"npm run startchat\" \"npm run startntp\""
+    "deploy": "gh-pages -d build",
+    "start": "concurrently --kill-others \"npm run startchat\" \"npm run startntp\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+
+
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "gh-pages": "^6.1.1",
     "nodemon": "^3.1.0"
   }
 }
