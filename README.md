@@ -26,7 +26,9 @@ npm run start chat
 
 
 # TODO:
+<li>
 Subir Herouku
+</li>
 Mirar Digital Ocean
 Mirar Api Discord microservicios
 Mirar Api Telegram microservicios
