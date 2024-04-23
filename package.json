@@ -8,13 +8,13 @@
     "socket.io": "^4.1.2"
   },
   "scripts": {
-    "startchat": "node index.js",
-    "startntp": "node ntpserver.js",
-    "dev": "nodemon index.js",
-    "devntp": "nodemon ntpserver.js",
+    "startchat": "node ./src/index.js",
+    "startntp": "node ./src/ntpserver.js",
+    "dev": "nodemon ./src/index.js",
+    "devntp": "nodemon ./src/ntpserver.js",
     "deploy": "gh-pages -d build",
-    "start": "concurrently --kill-others \"npm run startchat\" \"npm run startntp\"",
-    "build":" --kill-others \"npm run startchat\" \"npm run startntp\"",
+    "start": "npm run startchat ",
+    "build":"npm run startchat & npm run startntp",
     "heroku-postbuild": "npm install && npm run start"
 
 
