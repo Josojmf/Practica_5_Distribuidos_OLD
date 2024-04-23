@@ -1,17 +1,26 @@
 # Jose María Fernández  Sincronizador
 ## Sincronizado mediante:
-- 1 Servidor externo 
-Link : [World Time Api](http://worldtimeapi.org/api/timezone/Europe/Madrid)
-- 2 Syncronización interna:
+ - 1 Servidor externo:
+    - Link : [World Time Api](http://worldtimeapi.org/api/timezone/Europe/Madrid)
+ - 2 Syncronización interna:
+   - <img src="/Images/image.png">
+ - 3 Servidor NTP Propio
+   <img src="/Images/NTPSERVER.png">
 
-<img src="/Images/image.png" alt ="img> 
--3  Servidor NTP Propio
-
-#Install dependencies:
+# Install dependencies:
 ````
 npm install
 ````
-#Run both scripts
+# Run both scripts
 ````
 npm run start
 ````
+# Run just NTP server
+````
+npm run startntp
+````
+# Run just Chat server
+````
+npm run start chat
+````
+
