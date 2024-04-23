@@ -2,9 +2,11 @@
 ## Sincronizado mediante:
 
 
-#RUN:
+#Install dependencies:
 ````
 npm install
+````
+#Run both scripts
 ````
 npm run start
 ````
