@@ -25,7 +25,7 @@ npm run start chat
 ````
 
 
-#TODO:
+# TODO:
 Subir Herouku
 Mirar Digital Ocean
 Mirar Api Discord microservicios
