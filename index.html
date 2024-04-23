@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chat sincronizador </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    form {
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: 0.5%;
+    }
+
+    form button {
+      width: 9%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+
+    #closeButton {
+      position: absolute;
+      top: 0%;
+      right: 5px;
+      width: 9%;
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px;
+    }
+
+    #ReopenConnection {
+      position: absolute;
+      top: 5%;
+      right: 5px;
+      width: 9%;
+
+      background: green;
+      color: white;
+      border: none;
+      padding: 10px;
+    }
+
+    .MainTitle {
+      text-align: center;
+      color: rgb(130, 224, 255);
+    }
+
+    .messageContainer {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 80%;
+      width: 100%;
+      height: 80%;
+      overflow-y: scroll;
+      color: green;
+
+      ul {
+        position: relative;
+        color: green;
+        top: 60%;
+        width: 100%;
+        height: 80%;
+        overflow-y: scroll;
+
+      }
+
+      li {
+        position: relative;
+        color: green;
+        top: 10%;
+        width: 100%;
+        height: 80%;
+        overflow-y: scroll;
+
+      }
+    }
+
+    .message {
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      color: green;
+      top: 10%;
+      width: 100%;
+      height: 80%;
+      overflow-y: scroll;
+    }
+
+    .messageUL {
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 80%;
+      overflow-y: scroll;
+    }
+
+    .Body {
+      background-color: #000;
+      color: black;
+      background: black;
+    }
+  </style>
+  <link rel="stylesheet" href="/style.css">
+  </link>
+
+</head>
+
+<body>
+
+  <div className="Body">
+    <h1 className="MainTitle">Chat sincronizado</h1>
+    <h2>Local Time:
+      <script>
+        var timenow = new Date();
+        document.write(timenow);
+      </script>
+    </h2>
+
+    <div className="messageContainer">
+      <ul id="messages" className="messageUL"></ul>
+    </div>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" />
+      <button>Send</button>
+    </form>
+    <button id="closeButton">Close</button>
+    <button id="ReopenConnection">Reopen Connection</button>
+    <script>
+
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <div>
+      <script>
+        var socket = io();
+        var timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid"
+        const response = fetch(timeAPIURL);
+        var closeButton = document.getElementById('closeButton');
+        var ReopenConnection = document.getElementById('ReopenConnection');
+        var messages = document.getElementById('messages');
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+        var isDisabled = false;
+
+        async function fetchTime() {
+          var timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid"
+          const response = await fetch(timeAPIURL).then();
+          return response;
+        }
+
+
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          fetchTime();
+          if (input.value) {
+            socket.emit('chat message', input.value);
+            input.value = '';
+          }
+        });
+
+        socket.on('chat message', function (msg) {
+          var item = document.createElement('li');
+          var receivedMessages = [];
+          var ActualTime = new Date();
+          receivedMessages.push(msg);
+          item.textContent = msg;
+          const wholetext = receivedMessages.join(' ');
+          const fullMessage = wholetext + item;
+          messages.appendChild(item, wholetext);
+          window.scrollTo(0, document.body.scrollHeight);
+          item.classList.add('message');
+        });
+        closeButton.addEventListener('click', function () {
+          if (!isDisabled) {
+            socket.close();
+            isDisabled = true;
+          } else {
+            isDisabled = false;
+          }
+        }
+
+        );
+        ReopenConnection.addEventListener('click', function () {
+          if (isDisabled) {
+            socket.open();
+            isDisabled = false;
+          }
+        });
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+
+      </script>
+    </div>
+  </div>
+</body>
+
+</html>

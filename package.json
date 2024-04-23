@@ -1,0 +1,21 @@
+{
+  "name": "socket-chat-example",
+  "version": "0.0.1",
+  "description": "my first socket.io app",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ntp-time": "^2.0.4",
+    "socket.io": "^4.1.2"
+  },
+  "scripts": {
+    "startchat": "node index.js",
+    "startntp": "node ntpserver.js",
+    "dev": "nodemon index.js",
+    "devntp": "nodemon ntpserver.js",
+    "start": "concurrently --kill-others \"npm run startchat\" \"npm run startntp\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}
