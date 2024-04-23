@@ -15,3 +15,12 @@ npm install
 ````
 npm run start
 ````
+#Run just NTP server
+````
+npm run startntp
+````
+#Run just Chat server
+````
+npm run start chat
+````
+
