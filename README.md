@@ -3,7 +3,7 @@
 - 1 Servidor externo 
 Link : [World Time Api](http://worldtimeapi.org/api/timezone/Europe/Madrid)
 - 2 Syncronización interna
-![img] (/Images/image.png)
+![img] (./Images/image.png)
 -3  Servidor NTP Propio
 
 
