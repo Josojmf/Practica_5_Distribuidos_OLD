@@ -24,3 +24,10 @@ npm run startntp
 npm run start chat
 ````
 
+
+#TODO:
+Subir Herouku
+Mirar Digital Ocean
+Mirar Api Discord microservicios
+Mirar Api Telegram microservicios
+
