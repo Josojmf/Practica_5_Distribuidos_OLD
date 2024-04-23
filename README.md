@@ -3,9 +3,8 @@
 - 1 Servidor externo 
 Link : [World Time Api](http://worldtimeapi.org/api/timezone/Europe/Madrid)
 - 2 Syncronización interna
-![img] (./Images/image.png)
+<img src="/Images/image.png" alt ="img> 
 -3  Servidor NTP Propio
-
 
 #Install dependencies:
 ````
