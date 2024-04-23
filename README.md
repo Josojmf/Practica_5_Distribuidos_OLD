@@ -5,7 +5,7 @@
  - 2 Syncronización interna:
    - <img src="/Images/image.png">
 ### -3 Servidor NTP Propio
-  - <img src="/Images/NTPSERVER">
+  - <img src="/Images/NTPSERVER.png">
 
 #Install dependencies:
 ````
