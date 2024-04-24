@@ -15,8 +15,8 @@
     "devntp": "nodemon ./src/ntpserver.js",
     "deploy": "gh-pages -d build",
     "start": "npm run startchat ",
-    "build": "npm run startchat & npm run startntp",
-    "heroku-postbuild": "npm install && npm run start",
+    "build": "concurrently \"npm run startchat\" \"npm run startntp\"",
+    "heroku-postbuild": "npm install & npm run start",
     "monitor": "node newrelic ./src/index.js & node newrelic ./src/ntpserver.js"    
   },
 

@@ -1,3 +1,7 @@
+
+
+
+
 const NTPServer = require('ntp-time').Server;
 const server = new NTPServer();
 
@@ -10,10 +14,8 @@ server.handle((message, response) => {
 	response(message);
 });
 
-// Check if node has the necessary permissions
-// to listen on ports less than 1024
-// https://stackoverflow.com/questions/413807/is-there-a-way-for-non-root-processes-to-bind-to-privileged-ports-on-linux
-server.listen(123, err => {
+
+server.listen(3001, err => {
 	if (err) throw err;
 
 	console.log('Server listening');
