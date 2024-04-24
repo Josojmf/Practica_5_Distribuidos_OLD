@@ -4,21 +4,22 @@
   "description": "my first socket.io app",
   "dependencies": {
     "express": "^4.17.1",
+    "newrelic": "^11.15.0",
     "ntp-time": "^2.0.4",
     "socket.io": "^4.1.2"
   },
   "scripts": {
-    "startchat": "node ./src/index.js",
+    "startchat": "node  ./src/index.js",
     "startntp": "node ./src/ntpserver.js",
     "dev": "nodemon ./src/index.js",
     "devntp": "nodemon ./src/ntpserver.js",
     "deploy": "gh-pages -d build",
     "start": "npm run startchat ",
-    "build":"npm run startchat & npm run startntp",
-    "heroku-postbuild": "npm install && npm run start"
-
-
+    "build": "npm run startchat & npm run startntp",
+    "heroku-postbuild": "npm install && npm run start",
+    "monitor": "node newrelic ./src/index.js & node newrelic ./src/ntpserver.js"    
   },
+
   "devDependencies": {
     "concurrently": "^8.2.2",
     "gh-pages": "^6.1.1",

@@ -37,7 +37,7 @@ io.on("connection", (socket) => {
             "chat message",
             "API Server sync time:" + new Date(data.datetime)
           ),
-        io.emit("chat message", "Local time:" + new Date(LocalTime)),
+        io.emit("chat message", "Local time:" + new Date()),
       );
   });
 });

@@ -23,6 +23,10 @@ npm run startntp
 ````
 npm run start chat
 ````
+# Run Docker whole Application
+````
+docker compose up --build
+````
 
 
 # TODO:
