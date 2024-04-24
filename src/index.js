@@ -18,18 +18,18 @@ async function sync() {
   }
 }
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
 io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    const ntpRes = sync().then((time) => {
+  socket.on("chat message", (_msg) => {
+    const _ntpRes = sync().then((time) => {
       return time;
     });
 
-    var timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid";
-    const apiRes = fetch(timeAPIURL)
+    const  timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid";
+    const _apiRes = fetch(timeAPIURL)
       .then((response) => response.json())
       .then(
         (data) =>
@@ -41,7 +41,8 @@ io.on("connection", (socket) => {
       );
   });
 });
-const LocalTime = new Date();
+
+
 
 http.listen(port, () => {
   console.log(`Socket.IO server running at http://localhost:${port}/`);

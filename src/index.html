@@ -157,10 +157,14 @@
     </div>
     <form id="form" action="">
       <input id="input" autocomplete="off" />
-      <button>Send</button>
+      <button
+      onclick="fetchTime()"
+      
+      >Fetch Time</button>
     </form>
     <button id="closeButton">Close</button>
     <button id="ReopenConnection">Reopen Connection</button>
+    <button id="fetchTime" on>Fetch Time</button>
     <script>
 
     </script>
@@ -172,6 +176,7 @@
         var timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid"
         const response = fetch(timeAPIURL);
         var closeButton = document.getElementById('closeButton');
+        var fetchTimeButton = document.getElementById('fetchTime');
         var ReopenConnection = document.getElementById('ReopenConnection');
         var messages = document.getElementById('messages');
         var form = document.getElementById('form');
@@ -181,10 +186,16 @@
         async function fetchTime() {
           var timeAPIURL = "http://worldtimeapi.org/api/timezone/Europe/Madrid"
           const response = await fetch(timeAPIURL).then();
+          console.log(response);
+          alert(Object.keys(response));
           return response;
         }
 
-
+        fetchTimeButton.addEventListener('click', function () {
+          fetchTime().then(response => {
+            console.log(response);
+          });
+        });
 
         form.addEventListener('submit', function (e) {
           e.preventDefault();
